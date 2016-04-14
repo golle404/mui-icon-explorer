@@ -11,6 +11,7 @@ import Footer from './icon-explorer/components/Footer.jsx';
 import Panel from './icon-explorer/components/Panel.jsx';
 import IconList from './icon-explorer/components/IconList.jsx';
 import Snackbar from 'material-ui/lib/snackbar';
+import Divider from 'material-ui/lib/divider';
 
 class Application extends React.Component {
 
@@ -46,6 +47,7 @@ class Application extends React.Component {
                             data={this.props.data} 
                             touchHandler={this._onCopy} />
                     </Panel>
+                    <Divider />
                     <Footer/>
                     <Snackbar
                         bodyStyle={{textAlign: "center"}}

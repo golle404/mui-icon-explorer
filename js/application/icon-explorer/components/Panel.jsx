@@ -3,8 +3,6 @@
 import React from 'react';
 import Paper from 'material-ui/lib/paper';
 import StylePropable from 'material-ui/lib/mixins/style-propable';
-import _ from 'lodash';
-import UI from 'UI';
 
 class Panel extends React.Component {
 
@@ -12,9 +10,7 @@ class Panel extends React.Component {
         super(props);
         this.state = {
             paperStyle: this._getPaperStyle(),
-            zDepth: this._getZDepth()
         };
-        this._onResize = _.debounce(this._onResize, 150).bind(this);
     }
 
     _getPaperStyle() {
@@ -22,40 +18,19 @@ class Panel extends React.Component {
             minHeight: '350px',
             margin: '5px auto 0 auto',
             paddingBottom: '10px',
-            backgroundColor: '#fff'
+            backgroundColor: '#fff',
+            maxWidth: '800px'
         };
-        if (UI.windowWidth() <= UI.BREAK_POINT) {
-            style.width = '100%';
-        } else {
-            style.width = UI.BREAK_POINT + 'px';
-        }
         return style;
-    }
-
-    _getZDepth() {
-        return UI.windowWidth() <= UI.BREAK_POINT ? 0 : 1;
-    }
-
-    _onResize(e) {
-        this.setState({
-            paperStyle: this._getPaperStyle(),
-            zDepth: this._getZDepth()
-        });
-    }
-
-    componentWillMount() {
-        window.addEventListener('resize', this._onResize, false);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this._onResize, false);
     }
 
     render() {
         let mergeStyles = StylePropable.mergeStyles;
         return (
-            <Paper style={ mergeStyles(this.state.paperStyle) } zDepth={ this.state.zDepth } rounded={ false }>
-              { this.props.children }
+            <Paper 
+                style={ mergeStyles(this.state.paperStyle) }
+                rounded={ false }>
+                    { this.props.children }
             </Paper>
             );
     }
