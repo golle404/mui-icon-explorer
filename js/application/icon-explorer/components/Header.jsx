@@ -3,7 +3,7 @@
 import React from 'react';
 import AppBar from 'material-ui/lib/app-bar';
 import IconButton from 'material-ui/lib/icon-button';
-
+import ActionHelp from 'material-ui/lib/svg-icons/action/help'
 
 class Header extends React.Component {
 
@@ -36,12 +36,12 @@ class Header extends React.Component {
     render() {
         return (
             <AppBar title="Material-UI icon explorer"
-              iconClassNameLeft="icon-html5"
-              iconElementRight={ <IconButton 
-                                    iconClassName="icon-github-1" 
-                                    onClick={ this._onRightClick.bind(this) } 
-                                    tooltip="View Source" /> }
-              onLeftIconButtonTouchTap={ this._onLeftClick.bind(this) } />
+              showMenuIconButton={false}
+              iconElementRight={ 
+                <IconButton
+                    onTouchTap={this.props.aboutHandler}>
+                    <ActionHelp />
+                </IconButton>} />
             );
     }
 }

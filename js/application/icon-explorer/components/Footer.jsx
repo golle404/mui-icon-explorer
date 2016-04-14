@@ -20,21 +20,27 @@ class Footer extends React.Component {
     }
     render() {
         let footerStyle = {
-            display: 'block',
-            width: '100%',
-            textAlign: 'center',
-            marginTop: '15px'
+            display: "flex",
+            width: "100%",
+            textAlign: "center",
+            marginTop: "5px",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#00BCD4",
+            color: "#fff",
+            fontFamily: "Roboto, sans-serif"
         };
         let mergeStyles = StylePropable.mergeStyles;
         return (
                 <footer style={ mergeStyles(footerStyle) }>
-                    <span>
-                        { '\u00A9 2016 Goran Rakić' }
+                    <div>{ '\u00A9 2016 Goran Rakić' }</div>
                         <IconButton 
                             tooltip="Twitter"
                             tooltipPosition="top-center"
                             onClick={ this._onClick.bind(null, "https://twitter.com/gollactive") } >
-                            <SvgIcon viewBox='16 16 32 32'>
+                            <SvgIcon 
+                                viewBox='16 16 32 32'
+                                color={"#fff"}>
                                 <path d={socialData.twitter.icon} />
                             </SvgIcon>
                         </IconButton>
@@ -42,7 +48,9 @@ class Footer extends React.Component {
                             tooltip="GitHub"
                             tooltipPosition="top-center"
                             onClick={ this._onClick.bind(null, "https://github.com/golle404") } >
-                            <SvgIcon viewBox='16 16 32 32'>
+                            <SvgIcon 
+                                viewBox='16 16 32 32'
+                                color={"#fff"}>
                                 <path d={socialData.github.icon} />
                             </SvgIcon>
                         </IconButton>
@@ -50,12 +58,12 @@ class Footer extends React.Component {
                             tooltip="CodePen"
                             tooltipPosition="top-center"
                             onClick={ this._onClick.bind(null, "http://codepen.io/golle404/") } >
-                            <SvgIcon viewBox='16 16 32 32'>
+                            <SvgIcon 
+                                viewBox='16 16 32 32'
+                                color={"#fff"}>
                                 <path d={socialData.codepen.icon} />
                             </SvgIcon>
                         </IconButton>
-                        
-                    </span>
                 </footer>
             );
     }

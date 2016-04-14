@@ -19,7 +19,7 @@ class Panel extends React.Component {
             margin: '5px auto 0 auto',
             paddingBottom: '10px',
             backgroundColor: '#fff',
-            maxWidth: '800px'
+            maxWidth: '600px'
         };
         return style;
     }

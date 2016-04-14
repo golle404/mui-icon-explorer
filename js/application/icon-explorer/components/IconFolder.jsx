@@ -10,6 +10,9 @@ class IconFolder extends React.Component {
     constructor(props) {
         super(props);
     }
+    shouldComponentUpdate(nextProps, nextState) {
+        return false;
+    }
     render() {
         const touchHandler = this.props.touchHandler;
         const dirPath = "material-ui/lib/svg-icons/" + this.props.dirPath;

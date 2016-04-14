@@ -15,6 +15,9 @@ class IconListItem extends React.Component {
             return gr.toUpperCase();
         });
     }
+    shouldComponentUpdate(nextProps, nextState) {
+        return false;
+    }
     render(){
     	const touchHandler = this.props.touchHandler;
     	const modulePath = this.props.dirPath + "/" + this.props.relativePath;
@@ -22,6 +25,7 @@ class IconListItem extends React.Component {
         const Icon = svgIcons[iconClass]
     	return (
     		<ListItem
+                style={{paddingLeft: "48px", borderBottom: "inset"}}
 	            onTouchTap={touchHandler.bind(null, iconClass, modulePath)}
 	            primaryText={iconClass}
 	            secondaryText={modulePath}
